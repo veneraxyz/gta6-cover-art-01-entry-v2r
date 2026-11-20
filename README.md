@@ -1,8 +1,8 @@
 # Vice Cover Studio
 
-[![make.fun — gta6-cover-art-01](https://img.shields.io/badge/make.fun-gta6--cover--art--01-ff5fa2)](https://make.fun/c/gta6-cover-art-01)
-[![License: MIT](https://img.shields.io/github/license/veneraxyz/gta6-cover-art-01-entry-v2r)](LICENSE)
-[![100% offline](https://img.shields.io/badge/offline-100%25-35e0d4)](app/index.html)
+[![make.fun · gta6-cover-art-01](https://make.fun/badge/gta6-cover-art-01.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
+[![rank](https://make.fun/badge/gta6-cover-art-01/veneraxyz/gta6-cover-art-01-entry-v2r/rank.svg)](https://make.fun/bounty/gta6-cover-art-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
+[![reward](https://make.fun/badge/gta6-cover-art-01/veneraxyz/gta6-cover-art-01-entry-v2r/reward.svg)](https://make.fun/bounty/gta6-cover-art-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-cover-art-01)
 
 Turn any photo and caption into GTA 6-style multi-panel cover art — in your
 browser, fully offline. Your photos never leave the machine: no uploads, no
