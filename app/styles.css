@@ -1,0 +1,273 @@
+/* Vice Cover Studio — dark studio UI. Anton is bundled locally. */
+@font-face {
+  font-family: 'Anton';
+  src: url('fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0d0a12;
+  --panel: #171221;
+  --panel-2: #1f1829;
+  --line: #2c2338;
+  --text: #f4ecff;
+  --muted: #a99ab8;
+  --accent: #ff5fa2;
+  --accent-2: #35e0d4;
+  --gold: #ffd97a;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- header ---- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+
+.brand-mark {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 30px;
+  line-height: 1;
+  padding: 6px 10px 4px;
+  color: #160a12;
+  background: linear-gradient(135deg, var(--gold), var(--accent));
+  border-radius: 6px;
+}
+
+.brand h1 {
+  font-family: 'Anton', Impact, sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.06em;
+  margin: 0;
+  line-height: 1;
+}
+
+.tagline { margin: 4px 0 0; color: var(--muted); font-size: 12px; }
+
+.top-controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.segmented {
+  display: flex;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.segmented button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 13px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.segmented button + button { border-left: 1px solid var(--line); }
+.segmented button.active { background: var(--accent); color: #160a12; font-weight: 700; }
+.segmented button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: -2px; }
+
+.download {
+  appearance: none;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  color: #160a12;
+  background: linear-gradient(135deg, var(--gold), var(--accent));
+  cursor: pointer;
+}
+.download:hover { filter: brightness(1.08); }
+.download:active { transform: translateY(1px); }
+
+/* ---- studio layout ---- */
+.studio {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 16px;
+  padding: 16px 20px;
+  min-height: 0;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.canvas-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background:
+    linear-gradient(45deg, #14101c 25%, transparent 25%, transparent 75%, #14101c 75%),
+    linear-gradient(45deg, #14101c 25%, transparent 25%, transparent 75%, #14101c 75%);
+  background-color: #100c16;
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+#cover {
+  max-width: 100%;
+  max-height: calc(100vh - 220px);
+  width: auto;
+  height: auto;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.6);
+  border-radius: 4px;
+  touch-action: none;
+}
+#cover.grab { cursor: grab; }
+#cover.grabbing { cursor: grabbing; }
+
+.hint { margin: 0; color: var(--muted); font-size: 13px; text-align: center; }
+
+/* ---- right panel ---- */
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.panel section { display: flex; flex-direction: column; gap: 10px; }
+
+.panel h2 {
+  font-family: 'Anton', Impact, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0;
+}
+
+.samples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+
+.thumb {
+  appearance: none;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 0 0 4px;
+  background: var(--panel-2);
+  color: var(--text);
+  cursor: pointer;
+  overflow: hidden;
+  font: inherit;
+}
+.thumb canvas { display: block; width: 100%; height: auto; }
+.thumb span { display: block; font-size: 11px; padding: 4px 4px 0; color: var(--muted); }
+.thumb.selected { border-color: var(--accent); }
+.thumb.selected span { color: var(--text); }
+
+.photo-chip {
+  margin: 0;
+  font-size: 12px;
+  color: var(--accent-2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.upload {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  border: 1px dashed var(--accent-2);
+  border-radius: 8px;
+  color: var(--accent-2);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+}
+.upload:hover { background: rgba(53, 224, 212, 0.08); }
+.upload input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+
+.note { margin: 0; color: var(--muted); font-size: 12px; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.field input[type="text"] {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+  font-size: 15px;
+  padding: 9px 11px;
+}
+.field input[type="text"]:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+.field input[type="range"] { width: 100%; accent-color: var(--accent); }
+
+.field-row { display: flex; justify-content: space-between; align-items: baseline; }
+
+.zoom-val { color: var(--text); font-weight: 600; }
+
+.secondary {
+  appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+.secondary:hover { border-color: var(--accent); }
+
+.support-list { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+.foot { padding: 10px 20px 14px; border-top: 1px solid var(--line); }
+.foot p { margin: 0; color: var(--muted); font-size: 12px; text-align: center; }
+
+@media (max-width: 900px) {
+  .studio { grid-template-columns: 1fr; }
+  #cover { max-height: 70vh; }
+}

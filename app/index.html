@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — GTA 6-style cover art maker</title>
+<meta name="description" content="Turn any photo and caption into GTA 6-style multi-panel cover art. Offline, in your browser — your photos never leave this machine.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">VI</span>
+    <div>
+      <h1>VICE COVER STUDIO</h1>
+      <p class="tagline">GTA 6-style cover art, made offline</p>
+    </div>
+  </div>
+  <div class="top-controls">
+    <div class="segmented" role="group" aria-label="Cover format">
+      <button type="button" data-format="portrait" class="active">Portrait 1080&times;1350</button>
+      <button type="button" data-format="square">Square 1080&times;1080</button>
+      <button type="button" data-format="landscape">Wide 1920&times;1080</button>
+    </div>
+    <div class="segmented" role="group" aria-label="Colour grade">
+      <button type="button" data-grade="sunset" class="active">Sunset</button>
+      <button type="button" data-grade="neon">Neon</button>
+    </div>
+    <button type="button" id="download" class="download">Download PNG</button>
+  </div>
+</header>
+
+<main class="studio">
+  <section class="stage" aria-label="Live cover preview">
+    <div class="canvas-wrap">
+      <canvas id="cover" width="1080" height="1350"></canvas>
+    </div>
+    <p class="hint">Drag the hero photo to reframe it &middot; use the zoom slider to crop closer &middot; the preview is the export, pixel for pixel.</p>
+  </section>
+
+  <aside class="panel" aria-label="Cover controls">
+    <section>
+      <h2>Sample photos</h2>
+      <div id="samples" class="samples"></div>
+      <p id="photo-chip" class="photo-chip" hidden></p>
+    </section>
+
+    <section>
+      <h2>Your own photo</h2>
+      <label class="upload" for="upload">Use your own photo
+        <input type="file" id="upload" accept="image/*">
+      </label>
+      <p class="note">Read on this machine only — never uploaded.</p>
+    </section>
+
+    <section>
+      <h2>Caption</h2>
+      <label class="field">Headline
+        <input type="text" id="headline" value="BOULEVARD QUEEN" maxlength="42" autocomplete="off">
+      </label>
+      <label class="field">Subtitle
+        <input type="text" id="subtitle" value="VICE CITY" maxlength="30" autocomplete="off">
+      </label>
+      <p class="note">Long headlines shrink and wrap to two lines automatically.</p>
+    </section>
+
+    <section>
+      <h2>Hero framing</h2>
+      <label class="field"><span class="field-row"><span>Zoom</span><span id="zoom-val" class="zoom-val">1.00x</span></span>
+        <input type="range" id="zoom" min="1" max="2.5" step="0.01" value="1">
+      </label>
+      <button type="button" id="reset-frame" class="secondary">Reset framing</button>
+    </section>
+
+    <section>
+      <h2>Supporting scenes</h2>
+      <p id="support-list" class="support-list"></p>
+      <button type="button" id="swap" class="secondary">Swap supporting scenes</button>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <p>100% offline — no network requests, no uploads. Lettering: Anton (SIL Open Font License). All artwork is drawn in code, original to this app.</p>
+</footer>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
